@@ -32,6 +32,18 @@ Important Things
 			C3 : The Second predicted Manga
       
 			C4 : The Third predicted Manga
+
+- visualization.py is the last updated file for visualizing each feature.
+
+	input : 
+  
+		1- features.csv (List of features)
+    
+		2- mangaNames.csv (List of corresponding Manga names)
+    
+	output : 
+  
+		- Plots, Change FeatureIndex (Value from 0 -> N) to plot each feature.
       
 Current Workload
 --------
@@ -40,6 +52,4 @@ Current Workload
 	
 	2- Eliminate overfetting.
 	
-	3- visualize the process.
-	
-	4- Writing the report.
+	3- Writing the report.
