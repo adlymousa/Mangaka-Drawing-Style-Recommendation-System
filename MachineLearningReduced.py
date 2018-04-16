@@ -20,6 +20,19 @@ for mangaNameToPredictName in y :
     def Build_Data_Set(features = header1, features1 = header2, toDelete = deleteManga):
         data_df = pd.DataFrame.from_csv("D:/semesters/graduation project - manga/features.csv")
         X = np.array(data_df[features].values)
+        min = 0
+        max = 0
+        for k in range(0,30):
+            min = X[0][k]
+            max = X[0][k]
+            for i in range(0,109):
+                if min > X[i][k] :
+                    min = X[i][k]
+                if max > X[i][k] :
+                    max = X[i][k]
+        for k in range(0,30):
+            for i in range(0,109):
+                X[i][k] = ((X[i][k] - min) / max) *100
         data_df2 = pd.DataFrame.from_csv("D:/semesters/graduation project - manga/mangaNames.csv")
         oldY = np.array(data_df2[features1].values)
         y=[]
