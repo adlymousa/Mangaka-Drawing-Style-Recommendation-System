@@ -1,36 +1,36 @@
-Features As listed in the Array : 
+Features As listed in the Array : status (distripution, different volumes for the same manga similarity)
 MangaSceneFeaturesdaviation : (Daviation Based) 
-0-  Feature_Page_Average_Width
-1-  Feature_Page_Average_Height
-2-  Feature_Page_Average_Area_To_Rectangle_Ratio
-3-  Feature_Page_Average_Slope
-4-  Feature_Page_Average_Canny_Lines
-5-  Feature_SceneCanny_Average_Pixels
-6-  Feature_Tone_Average_Pixels
-7-  Feature_Outlines_To_Tones_Pixels_Ratio
+0-  Feature_Page_Average_Width : review (good, bad) 
+1-  Feature_Page_Average_Height : review (good, bad)
+2-  Feature_Page_Average_Area_To_Rectangle_Ratio : valid (good, good)
+3-  Feature_Page_Average_Slope : valid (good, good)
+4-  Feature_Page_Average_Canny_Lines : review (bad, good)
+5-  Feature_SceneCanny_Average_Pixels : review (bad, good)
+6-  Feature_Tone_Average_Pixels : review (bad, good)
+7-  Feature_Outlines_To_Tones_Pixels_Ratio : review (good, bad)
 MangaSceneFeaturesAverage : (Average Based)
-8-  Feature_Page_Average_Width
-9-  Feature_Page_Average_Height
-10- Feature_Page_Average_Area_To_Rectangle_Ratio
-11- Feature_Page_Average_Slope
-12- Feature_Page_Average_Canny_Lines
-13- Feature_SceneCanny_Average_Pixels
-14- Feature_Tone_Average_Pixels
-15- Feature_Outlines_To_Tones_Pixels_Ratio
+8-  Feature_Page_Average_Width : valid (good, good)
+9-  Feature_Page_Average_Height : valid (good, good)
+10- Feature_Page_Average_Area_To_Rectangle_Ratio : review (bad, good)
+11- Feature_Page_Average_Slope : review (bad, good)
+12- Feature_Page_Average_Canny_Lines : review (bad, good)
+13- Feature_SceneCanny_Average_Pixels : review (bad, good)
+14- Feature_Tone_Average_Pixels : review (bad, good)
+15- Feature_Outlines_To_Tones_Pixels_Ratio : valid (good, good)
 MangaFaceFeaturesdaviation : (Daviation Based) 
-16- Face Area
-17- Density per unit area
-18- FaceCanny (Vectors Pixels) Pixels per unit area
-19- Feature_FaceTone_Pixels
-20- Ratio FaceCanny / Face Tone
+16- Face Area : review (good, bad)
+17- Density per unit area : valid (good, good) there number of mangas which has the same value.
+18- FaceCanny (Vectors Pixels) Pixels per unit area : valid (good, good)
+19- Feature_FaceTone_Pixels : valid (good, good)
+20- Ratio FaceCanny / Face Tone : valid (good, good)
 MangaFaceFeaturesAverage :(Average Based)
-21- Face Area
-22- Density per unit area
-23- FaceCanny (Vectors Pixels) Pixels per unit area
-24- Feature_FaceTone_Pixels
-25- Ratio FaceCanny / Face Tone
+21- Face Area : valid (good, good)
+22- Density per unit area : valid (good, good)
+23- FaceCanny (Vectors Pixels) Pixels per unit area : valid (good, good)
+24- Feature_FaceTone_Pixels : review (good, bad)
+25- Ratio FaceCanny / Face Tone : review (good, kinda bad)
 Independent :
-26- numberOfGradientColorsInFaces
-27- numberOfGradientColorsInScenes
-28- mostGradientColorInFaces
-29- mostGradientColorInScene
+26- numberOfGradientColorsInFaces : valid (good, good)
+27- numberOfGradientColorsInScenes : valid (good, good)
+28- mostGradientColorInFaces : AF
+29- mostGradientColorInScene : AF
