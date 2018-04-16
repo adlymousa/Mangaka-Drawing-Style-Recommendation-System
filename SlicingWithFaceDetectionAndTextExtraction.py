@@ -3,6 +3,17 @@ import numpy as np
 import glob
 import os
 import math
+import connected_components as cc
+import run_length_smoothing as rls
+import clean_page as clean
+import ocr
+import segmentation as seg
+import furigana
+import arg
+import defaults
+from scipy.misc import imsave
+import sys
+import scipy.ndimage
 AbsPath = 'D:/semesters/graduation project - manga/Manga109/Manga109/images'
 #AbsPath = 'D:/semesters/graduation project - manga/TennenSenshiG'
 cascPath = "D:/semesters/graduation project - manga/lbpcascade_animeface.xml"
@@ -13,6 +24,7 @@ MangaFile = open('D:/semesters/graduation project - manga/mangaNames.csv', 'w+')
 MangaFile.write(",MangaName\n")
 FeaturesFile.write(",f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f11,f12,f13,f14,f15,f16,f17,f18,f19,f20,f21,f22,f23,f24,f25,f26,f27,f28,f29,f30\n")
 for mangaName in os.listdir(AbsPath):
+    print(mangaName)
     MangaCounter += 1
     MangaFile.write(str(MangaCounter) + "," + mangaName+"\n")
     FeaturesFileString = "";
@@ -47,14 +59,16 @@ for mangaName in os.listdir(AbsPath):
                 averageWidth = 0;
                 for width in vectorWidth:
                     averageWidth += width
-                averageWidth /= len(vectorWidth)
+                if len(vectorWidth)!=0 :
+                    averageWidth /= len(vectorWidth)
                 pageVector.append(averageWidth)
         def Feature_Page_Average_Height( vectorHeight ):
             if len(vectorHeight)!=0 :
                 averageHeight = 0;
                 for Height in vectorHeight:
                     averageHeight += Height
-                averageHeight /= len(vectorHeight)
+                if len(vectorHeight)!=0 :
+                    averageHeight /= len(vectorHeight)
                 pageVector.append(averageHeight)
         def Feature_Page_Average_Slope( vectorPoints ):
             if len(vectorPoints)!=0 :
@@ -78,16 +92,22 @@ for mangaName in os.listdir(AbsPath):
                 averageArea = 0;
                 for Area in vectorArea:
                     averageArea+= Area
-                averageArea /= len(vectorArea)
+                if len(vectorArea)!=0 :
+                    averageArea /= len(vectorArea)
                 pageVector.append(averageArea)
         def Feature_Page_Average_Canny_Lines(vectorCannyLines,CannyAreas):
             if len(vectorCannyLines)!=0 :
                 averageCannyLines = 0;
                 counter = 0
+                CannyAreas[counter] +=1
                 for CannyLines in vectorCannyLines:
-                    averageCannyLines+= CannyLines/CannyAreas[counter]
+                    try:
+                        averageCannyLines+= CannyLines/CannyAreas[counter]
+                    except ZeroDivisionError:
+                        averageCannyLines+= 0
                     counter +=1
-                averageCannyLines /= len(vectorCannyLines)
+                if len(vectorCannyLines)!=0:
+                    averageCannyLines /= len(vectorCannyLines)
                 pageVector.append(averageCannyLines)
         def Feature_SceneCanny_Pixels(Picture,Area):
             counter = 0
@@ -108,23 +128,31 @@ for mangaName in os.listdir(AbsPath):
                 average = 0
                 for Pixels in outLinesPixels:
                     average+=Pixels
-                average /= len(outLinesPixels)
+                if len(outLinesPixels)!=0:
+                    average /= len(outLinesPixels)
                 pageVector.append(average)
         def Feature_Tone_Average_Pixels():
             if len(tonePixels)!=0 :
                 average = 0
                 for Pixels in tonePixels:
                     average+=Pixels
-                average /= len(tonePixels)
+                if len(tonePixels)!=0:
+                    average /= len(tonePixels)
                 pageVector.append(average)
         def Feature_Outlines_To_Tones_Pixels_Ratio():
             if len(outLinesPixels)!=0 :
                 average = 0
                 counter = 0
+                if tonePixels[counter] == 0 :
+                    tonePixels[counter] +=1
                 for Pixels in outLinesPixels:
-                    average+=Pixels/tonePixels[counter]
+                    try:
+                        average+=Pixels/tonePixels[counter]
+                    except ZeroDivisionError:
+                        average+=0
                     counter += 1
-                average /= len(outLinesPixels)
+                if len(outLinesPixels) != 0 :
+                    average /= len(outLinesPixels)
                 pageVector.append(average)
         def Feature_FaceCanny_Pixels(Picture,Area):
             counter = 0
@@ -210,6 +238,21 @@ for mangaName in os.listdir(AbsPath):
                     masked_img = cv2.bitwise_or(mask_gray_white, masked_img)
                     x,y,w,h = cv2.boundingRect(cnt)
                     crop_img = masked_img[y:y+h, x:x+w]
+                    binary_threshold=arg.integer_value('binary_threshold',default_value=defaults.BINARY_THRESHOLD)
+                    if arg.boolean_value('verbose'):
+                      print ('Binarizing with threshold value of ' + str(binary_threshold))
+                    inv_binary = cv2.bitwise_not(clean.binarize(crop_img, threshold=binary_threshold))
+                    binary = clean.binarize(crop_img, threshold=binary_threshold)
+
+                    segmented_image = seg.segment_image(crop_img)
+                    segmented_image = segmented_image[:,:,2]
+                    mySceneImage = np.copy(segmented_image)
+                    image, contours, hierarchy = cv2.findContours(mySceneImage,cv2.RETR_LIST,cv2.CHAIN_APPROX_SIMPLE)
+                    for cnt in contours:
+                        if cv2.contourArea(cnt) > 3000 :
+                            cv2.drawContours(crop_img,[cnt],0,(255,255,255),cv2.FILLED)
+                    #cv2.imshow('image',crop_img)
+                    #cv2.waitKey(0)
                     #cv2.imwrite(pathSolved+"/"+str(counter)+".jpg", crop_img)
                     edges = cv2.Canny(crop_img,500,500)
                     edgesContours = cv2.findContours(edges,cv2.RETR_LIST,cv2.CHAIN_APPROX_SIMPLE)
