@@ -1,0 +1,36 @@
+Features As listed in the Array : 
+MangaSceneFeaturesdaviation : (Daviation Based) 
+0-  Feature_Page_Average_Width
+1-  Feature_Page_Average_Height
+2-  Feature_Page_Average_Area_To_Rectangle_Ratio
+3-  Feature_Page_Average_Slope
+4-  Feature_Page_Average_Canny_Lines
+5-  Feature_SceneCanny_Average_Pixels
+6-  Feature_Tone_Average_Pixels
+7-  Feature_Outlines_To_Tones_Pixels_Ratio
+MangaSceneFeaturesAverage : (Average Based)
+8-  Feature_Page_Average_Width
+9-  Feature_Page_Average_Height
+10- Feature_Page_Average_Area_To_Rectangle_Ratio
+11- Feature_Page_Average_Slope
+12- Feature_Page_Average_Canny_Lines
+13- Feature_SceneCanny_Average_Pixels
+14- Feature_Tone_Average_Pixels
+15- Feature_Outlines_To_Tones_Pixels_Ratio
+MangaFaceFeaturesdaviation : (Daviation Based) 
+16- Face Area
+17- Density per unit area
+18- FaceCanny (Vectors Pixels) Pixels per unit area
+19- Feature_FaceTone_Pixels
+20- Ratio FaceCanny / Face Tone
+MangaFaceFeaturesAverage :(Average Based)
+21- Face Area
+22- Density per unit area
+23- FaceCanny (Vectors Pixels) Pixels per unit area
+24- Feature_FaceTone_Pixels
+25- Ratio FaceCanny / Face Tone
+Independent :
+26- numberOfGradientColorsInFaces
+27- numberOfGradientColorsInScenes
+28- mostGradientColorInFaces
+29- mostGradientColorInScene
