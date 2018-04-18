@@ -6,11 +6,11 @@ MangaSceneFeaturesdaviation : (Daviation Based)
 3-  Feature_Page_Average_Slope : valid (good, good) Correct - will be taken
 4-  Feature_Page_Average_Canny_Lines : review (bad, good) to be reviewed -------------------------------------------- Accept? YES
 5-  Feature_SceneCanny_Average_Pixels : review (bad, good) For Review -------------------------------------------- Remove? YES
-6-  Feature_Tone_Average_Pixels : review (bad, good) For Review ----------------------------------------------------- Accept? YES
+6-  Feature_Tone_Average_Pixels : review (bad, good) For Review ----------------------------------------------------- Accept? NO
 7-  Feature_Outlines_To_Tones_Pixels_Ratio : review (good, bad) For Review --------------------------------------------- Remove? YES
 MangaSceneFeaturesAverage : (Average Based)
-8-  Feature_Page_Average_Width : valid (good, good) Correct - will be taken
-9-  Feature_Page_Average_Height : valid (good, good) Correct - will be taken
+8-  Feature_Page_Average_Width : valid (good, good) Correct - will be taken ---- Tmp deleted
+9-  Feature_Page_Average_Height : valid (good, good) Correct - will be taken ---- Tmp deleted
 10- Feature_Page_Average_Area_To_Rectangle_Ratio : review (bad, good) Correct - will be taken
 11- Feature_Page_Average_Slope : review (bad, good) Correct - will be taken
 12- Feature_Page_Average_Canny_Lines : review (bad, good) Correct - will be taken
