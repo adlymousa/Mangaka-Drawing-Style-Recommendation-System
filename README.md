@@ -44,12 +44,22 @@ Important Things
 	output : 
   
 		- Plots, Change FeatureIndex (Value from 0 -> N) to plot each feature.
-      
+
+- Colleration.py is the last updated file for finding colleration for each feature.
+
+	input : 
+  
+		1- features.csv (List of features)
+    
+		2- mangaNames.csv (List of corresponding Manga names)
+    
+	output : 
+  
+		- Collaration.csv (List of colleration value per feature).
+
+		- CollarationMargin80%.csv (All features that have 80% colleration or more).
+		
 Current Workload
 --------
-
-	1- Checking each feature if needed.
-	
-	2- Eliminate overfetting.
-	
-	3- Writing the report.
+	1- Generate New Prediction files with new Features.	
+	2- Writing the report.
