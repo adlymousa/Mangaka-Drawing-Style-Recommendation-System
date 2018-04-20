@@ -61,5 +61,21 @@ Important Things
 		
 Current Workload
 --------
-	1- Generate New Prediction files with new Features.	
-	2- Writing the report.
+	1- Writing the report.
+	
+	
+Taken Features
+--------
+	1-  Feature_Page_Average_Area_To_Rectangle_Ratio.
+	2-  Feature_Page_Average_Slope.
+	3-  Feature_Page_Average_Canny_Lines.
+	4-  Feature_SceneCanny_Average_Pixels.
+	5-  Feature_Tone_Average_Pixels.
+	6-  Feature_Outlines_To_Tones_Pixels_Ratio.
+	7-  Density per unit area deviation.
+	8-  Density per unit area.
+	9-  FaceCanny (Vectors Pixels) Pixels per unit area.
+	10- Feature_FaceTone_Pixels.
+	11- Ratio FaceCanny / Face Tone.
+	12- numberOfGradientColorsInFaces.
+	13- numberOfGradientColorsInScenes.
