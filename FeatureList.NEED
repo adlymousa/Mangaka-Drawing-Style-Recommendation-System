@@ -2,33 +2,33 @@ Features As listed in the Array : status (distripution, different volumes for th
 MangaSceneFeaturesdaviation : (Daviation Based) 
 0-  Feature_Page_Average_Width : review (good, bad) to be reviewed -------------------------------------------- Remove? YES
 1-  Feature_Page_Average_Height : review (good, bad) to be reviewed --------------------------------------------Remove? YES
-2-  Feature_Page_Average_Area_To_Rectangle_Ratio : valid (good, good) Correct - will be taken
-3-  Feature_Page_Average_Slope : valid (good, good) Correct - will be taken
-4-  Feature_Page_Average_Canny_Lines : review (bad, good) to be reviewed -------------------------------------------- Accept? YES
+2-  Feature_Page_Average_Area_To_Rectangle_Ratio : valid (good, good) Correct - will be taken ---------------------- remove
+3-  Feature_Page_Average_Slope : valid (good, good) Correct - will be taken ---------------------------------------- remove
+4-  Feature_Page_Average_Canny_Lines : review (bad, good) to be reviewed -------------------------------------------- Accept? YES--- remove
 5-  Feature_SceneCanny_Average_Pixels : review (bad, good) For Review -------------------------------------------- Remove? YES
 6-  Feature_Tone_Average_Pixels : review (bad, good) For Review ----------------------------------------------------- Accept? NO
 7-  Feature_Outlines_To_Tones_Pixels_Ratio : review (good, bad) For Review --------------------------------------------- Remove? YES
 MangaSceneFeaturesAverage : (Average Based)
-8-  Feature_Page_Average_Width : valid (good, good) Correct - will be taken ---- Tmp deleted
-9-  Feature_Page_Average_Height : valid (good, good) Correct - will be taken ---- Tmp deleted
+8-  Feature_Page_Average_Width : valid (good, good) Correct - will be taken ---- Tmp deleted------------------------------remove
+9-  Feature_Page_Average_Height : valid (good, good) Correct - will be taken ---- Tmp deleted-----------------------------remove
 10- Feature_Page_Average_Area_To_Rectangle_Ratio : review (bad, good) Correct - will be taken
 11- Feature_Page_Average_Slope : review (bad, good) Correct - will be taken
 12- Feature_Page_Average_Canny_Lines : review (bad, good) Correct - will be taken
 13- Feature_SceneCanny_Average_Pixels : review (bad, good) Correct - will be taken
-14- Feature_Tone_Average_Pixels : review (bad, good) Correct - will be taken
-15- Feature_Outlines_To_Tones_Pixels_Ratio : valid (good, good) Correct - will be taken
+14- Feature_Tone_Average_Pixels : review (bad, good) Correct - will be taken------------------------ test
+15- Feature_Outlines_To_Tones_Pixels_Ratio : valid (good, good) Correct - will be taken ----------------------------------- remove
 MangaFaceFeaturesdaviation : (Daviation Based) 
 16- Face Area : review (good, bad) To be reviewed------------------------------------------------------------ Remove? YES
 17- Density per unit area : valid (good, good) there number of mangas which has the same value. Correct - will be taken
 18- FaceCanny (Vectors Pixels) Pixels per unit area : valid (good, good) To be reviewed----------------------- Accept? NO
 19- Feature_FaceTone_Pixels : valid (good, good) To be reviewed----------------------------------------------- Remove? YES
-20- Ratio FaceCanny / Face Tone : valid (good, good) Correct - will be taken
+20- Ratio FaceCanny / Face Tone : valid (good, good) Correct - will be taken --------------------------------remove
 MangaFaceFeaturesAverage :(Average Based)
 21- Face Area : valid (good, good) To be reviewed.------------------------------------------------------------ Accept? No
-22- Density per unit area : valid (good, good) Correct - will be taken
-23- FaceCanny (Vectors Pixels) Pixels per unit area : valid (good, good) Correct - will be taken
-24- Feature_FaceTone_Pixels : review (good, bad) Correct - will be taken
-25- Ratio FaceCanny / Face Tone : review (good, kinda bad) Acceptable - will be taken
+22- Density per unit area : valid (good, good) Correct - will be taken ------------------ test
+23- FaceCanny (Vectors Pixels) Pixels per unit area : valid (good, good) Correct - will be taken ------------------- test
+24- Feature_FaceTone_Pixels : review (good, bad) Correct - will be taken -------------------------------------- test
+25- Ratio FaceCanny / Face Tone : review (good, kinda bad) Acceptable - will be taken ----------------------- remove
 Independent :
 26- numberOfGradientColorsInFaces : valid (good, good) Correct - will be taken
 27- numberOfGradientColorsInScenes : valid (good, good) Correct - will be taken
