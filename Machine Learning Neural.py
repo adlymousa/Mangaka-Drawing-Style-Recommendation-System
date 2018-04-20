@@ -42,7 +42,7 @@ for mangaNameToPredictName in y :
         X = array( X )
         y = array( y )
         C = 100 # SVM regularization parameter
-        clf1 = MLPClassifier(solver='lbfgs',  activation='relu', alpha=1,hidden_layer_sizes=(13,6,3), random_state=1, learning_rate_init=0.01,max_iter=200)
+        clf1 = MLPClassifier(solver='lbfgs',  activation='relu', alpha=1,hidden_layer_sizes=(13,6,3), random_state=1, learning_rate_init=0.01,max_iter=20000)
         clf1 = clf1.fit(X, y)
         value1 = clf1.predict(predictFeatures);
         print(value1[0])
