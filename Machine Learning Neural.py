@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 from sklearn import svm
 import pandas as pd
 from numpy import array
+from sklearn.neural_network import MLPClassifier
 header1 = ["f11","f12","f13","f14","f15","f16","f18","f23","f24","f25","f26","f27","f28"]
 header2 = ["MangaName"]
 data_df2 = pd.DataFrame.from_csv("D:/semesters/graduation project - manga/mangaNames.csv")
@@ -10,7 +11,7 @@ oldY = np.array(data_df2[header2].values)
 y=[]
 for name in oldY:
     y.append(name[0])
-FeaturesFile = open('D:/semesters/graduation project - manga/predictedReduced.csv', 'w+')
+FeaturesFile = open('D:/semesters/graduation project - manga/predicted.csv', 'w+')
 FeaturesFile.write("Manga,Prediction 1,Prediction 2,Prediction 3\n")
 for mangaNameToPredictName in y :
     PredictFileString = mangaNameToPredictName
@@ -41,12 +42,7 @@ for mangaNameToPredictName in y :
         X = array( X )
         y = array( y )
         C = 100 # SVM regularization parameter
-        #clf1 = (svm.SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
-    #decision_function_shape='ovr', degree=3, gamma='auto', kernel='rbf',
-    #max_iter=-1, probability=False, random_state=None, shrinking=True,
-    #tol=0.001, verbose=False))
-        #clf1 = (svm.SVC(kernel='poly', degree=2, C=C))
-        clf1 = (svm.SVC(kernel='linear', C=C))
+        clf1 = MLPClassifier(solver='lbfgs',  activation='relu', alpha=1,hidden_layer_sizes=(13,6,3), random_state=1, learning_rate_init=0.01,max_iter=200)
         clf1 = clf1.fit(X, y)
         value1 = clf1.predict(predictFeatures);
         print(value1[0])
