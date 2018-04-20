@@ -59,9 +59,10 @@ Important Things
 
 		- CollarationMargin80%.csv (All features that have 80% colleration or more).
 		
-Current Workload
+Machine Learning  -  Final
 --------
-	1- Writing the report.
+	1- Machine Learning Neural (Neural network solution)
+	2- Output : predictedFinal (The best we could get ^_^)
 	
 	
 Taken Features
